@@ -1,3 +1,5 @@
+link_directories(/opt/mvIMPACT_Acquire/lib/aarch64/)
+
 add_library(${PROJECT_NAME}
     bluefox2.cpp
     bluefox2_ros.cpp
@@ -15,15 +17,18 @@ target_link_libraries(${PROJECT_NAME}
 
 # single node
 add_executable(${PROJECT_NAME}_single_node single/single_main.cpp)
-target_link_libraries(${PROJECT_NAME}_single_node ${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME}_single_node ${PROJECT_NAME} ${mvIMPACT_LIBRARIES}
+    ${catkin_LIBRARIES})
 
 # stereo node
 add_executable(${PROJECT_NAME}_stereo_node stereo/stereo_main.cpp)
-target_link_libraries(${PROJECT_NAME}_stereo_node ${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME}_stereo_node ${PROJECT_NAME} ${mvIMPACT_LIBRARIES}
+    ${catkin_LIBRARIES})
 
 # multi node
 add_executable(${PROJECT_NAME}_multi_node multi/multi_main.cpp)
-target_link_libraries(${PROJECT_NAME}_multi_node ${PROJECT_NAME})
+target_link_libraries(${PROJECT_NAME}_multi_node ${PROJECT_NAME} ${mvIMPACT_LIBRARIES}
+    ${catkin_LIBRARIES})
 
 
 # list_mvdevice

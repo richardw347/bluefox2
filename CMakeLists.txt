@@ -11,6 +11,28 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(mvIMPACT REQUIRED)
 find_package(Boost COMPONENTS program_options REQUIRED)
 
+set(mvIMPACT_INCLUDE_DIRS /opt/mvIMPACT_Acquire)
+set(mvIMPACT_LIBRARIES 
+/opt/mvIMPACT_Acquire/lib/aarch64/libmvBlueFOX.so
+/opt/mvIMPACT_Acquire/lib/aarch64/libmvDeviceManager.so
+/opt/mvIMPACT_Acquire/lib/aarch64/libmvPropHandling.so
+/opt/mvIMPACT_Acquire/lib/aarch64/libmvVirtualDevice.so
+/opt/mvIMPACT_Acquire/lib/aarch64/libusb-1.0.so.0
+
+)
+
+MESSAGE(STATUS "------------------------------------")
+MESSAGE(STATUS "------------------------------------")
+MESSAGE(STATUS "------------------------------------")
+
+MESSAGE(STATUS "matrix libs: " ${mvIMPACT_LIBRARIES})
+
+MESSAGE(STATUS "------------------------------------")
+MESSAGE(STATUS "------------------------------------")
+MESSAGE(STATUS "------------------------------------")
+MESSAGE(STATUS "------------------------------------")
+
+
 # dynamic reconfigure
 generate_dynamic_reconfigure_options(cfg/Bluefox2Dyn.cfg)
 
